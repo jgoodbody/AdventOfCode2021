@@ -14,3 +14,13 @@ for i, depth in enumerate(depth_list):
         inc_count += 1
 
 print(inc_count)    
+
+# actual function for this
+def depth_increaser(depths, sample_size):
+    inc_count = 0
+    for i in range(len(depths)-sample_size):
+        if sum(depths[i:i+sample_size]) > sum(depths[i-1:i-1+sample_size]):
+            inc_count +=1
+    return inc_count
+
+print(depth_increaser(depth_list, 3))
